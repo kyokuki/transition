@@ -47,7 +47,7 @@ class State implements StaterInterface
         return $this->name;
     }
 
-    public function getData()
+    public function &getData()
     {
         return null;
     }

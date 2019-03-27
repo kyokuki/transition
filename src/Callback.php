@@ -9,7 +9,7 @@ class Callback
 
     function __construct($func)
     {
-        $this->SetFunc($func);
+        $this->setFunc($func);
     }
 
     private function setFunc($func)
@@ -20,7 +20,7 @@ class Callback
         $this->func = $func;
     }
 
-    public function execute($param)
+    public function execute(StaterInterface $param)
     {
         if (empty($this->func)) {
             throw new \Exception('CallBack need initialize');

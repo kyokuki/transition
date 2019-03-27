@@ -9,5 +9,5 @@ interface StaterInterface
 
     public function getState();
 
-    public function getData();
+    public function &getData();
 }
