@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace transition;
 
@@ -19,7 +20,7 @@ class State implements StaterInterface
         return $this;
     }
 
-    public function setEnter(Callback $cb)
+    public function setEnter(Callback $cb): State
     {
         if (empty($cb)) {
             throw new \Exception('State.Enter() need param.');
@@ -28,7 +29,7 @@ class State implements StaterInterface
         return $this;
     }
 
-    public function setQuit(Callback $cb)
+    public function setQuit(Callback $cb): State
     {
         if (empty($cb)) {
             throw new Exception('State.Quit() need param.');

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace transition;
 
@@ -18,13 +19,13 @@ class EventTransition
         return $this;
     }
 
-    public function setTo(string $to)
+    public function setTo(string $to): EventTransition
     {
         $this->to = $to;
         return $this;
     }
 
-    public function setFrom(array $states)
+    public function setFrom(array $states): EventTransition
     {
         if (is_string($states)) {
             $this->froms = [$states];
@@ -34,13 +35,13 @@ class EventTransition
         return $this;
     }
 
-    public function setBefore(Callback $cb)
+    public function setBefore(Callback $cb): EventTransition
     {
         $this->befores[] = $cb;
         return $this;
     }
 
-    public function setAfter(Callback $cb)
+    public function setAfter(Callback $cb): EventTransition
     {
         $this->afters[] = $cb;
         return $this;

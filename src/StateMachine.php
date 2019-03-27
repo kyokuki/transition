@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace transition;
 
@@ -11,6 +12,10 @@ class StateMachine
 
     public function __construct()
     {
+        $ver = '7.0.0';
+        if (version_compare(PHP_VERSION, $ver) < 0) {
+            die('Need PHP: ' . $ver . ' or above (current is: ' . PHP_VERSION . ')');
+        }
         return $this;
     }
 
@@ -22,14 +27,14 @@ class StateMachine
         return $this;
     }
 
-    public function state(string $name)
+    public function state(string $name): State
     {
         $state = new State($name);
         $this->states[$name] = $state;
         return $state;
     }
 
-    public function event(string $name)
+    public function event(string $name): Event
     {
         $event = new Event($name);
         $this->events[$name] = $event;

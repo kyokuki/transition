@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace transition;
 
@@ -7,12 +8,12 @@ class Callback
 {
     private $func;
 
-    function __construct($func)
+    function __construct(\Closure $func)
     {
         $this->setFunc($func);
     }
 
-    private function setFunc($func)
+    private function setFunc(\Closure $func)
     {
         if (gettype($func) != 'object') {
             throw new \Exception('Parameter of CallBack.SetFunc() must be a Closure.');
